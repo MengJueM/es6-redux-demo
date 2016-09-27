@@ -1,18 +1,24 @@
 import React, {Component} from 'react';
 import MyButton from './MyButton';
-import ADD_NEW_ITEM from '../actions/ButtonActions';
-console.log(ADD_NEW_ITEM);
+import {actionAddNewItem} from '../actions/ButtonActions';
+import {store} from '../stores';
 
 export default class MyButtonController extends Component {
     constructor () {
         super();
         this.state = {
-            items: ['test1', 'test2']
+            items: []
         }
         this.onClick = this.onClick.bind(this);
+        store.subscribe(() => {
+            this.setState({
+                items: store.getState().items
+            });
+        });
     }
 
     onClick () {
+        store.dispatch(actionAddNewItem('test123'));
         console.log("From parent");
     }
 

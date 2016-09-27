@@ -7,4 +7,4 @@ function actionAddNewItem (text) {
     }
 }
 
-module.export = { ADD_NEW_ITEM, actionAddNewItem };
+module.exports = {ADD_NEW_ITEM, actionAddNewItem};
